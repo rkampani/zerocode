@@ -18,7 +18,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: '11'
-          distribution: 'temurin'
+          distribution: 'temurin' # 'adopt' is deprecated, using 'temurin' instead
 
       - name: Install Docker Compose
         run: |
