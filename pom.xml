@@ -98,8 +98,8 @@
 
         <!-- Maven plugins, build properties  -->
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
-        <java-compiler-source.version>11</java-compiler-source.version>
-        <java-compiler-target.version>11</java-compiler-target.version>
+        <java-compiler-source.version>9</java-compiler-source.version>
+        <java-compiler-target.version>9</java-compiler-target.version>
         <maven-assembly-plugin.version>3.6.0</maven-assembly-plugin.version>
         <maven-source-plugin.version>3.3.0</maven-source-plugin.version>
         <maven-javadoc-plugin.version>3.6.0</maven-javadoc-plugin.version>
@@ -363,7 +363,8 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${maven-compiler-plugin.version}</version>
                     <configuration>
-                        <release>${java-compiler-source.version}</release>
+                        <source>${java-compiler-source.version}</source>
+                        <target>${java-compiler-target.version}</target>
                         <compilerArgs>
                             <arg>-proc:none</arg>
                         </compilerArgs>
