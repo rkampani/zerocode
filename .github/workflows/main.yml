@@ -43,7 +43,7 @@ jobs:
         run: docker-compose -f docker/compose/pg_compose.yml up -d
 
       - name: Building and testing the changes
-        run: mvn clean test
+        run: mvn clean test -Dserver.port=0
 
       - name: Clean up Docker
         if: always()
