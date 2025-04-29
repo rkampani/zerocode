@@ -37,20 +37,16 @@ jobs:
           sudo apt-get install -y docker-compose
 
       - name: Running Kafka
-        run: |
-          docker-compose -f docker/compose/kafka-schema-registry.yml up -d
-          sleep 10
+        run: docker-compose -f docker/compose/kafka-schema-registry.yml up -d && sleep 10
 
-      - name: Running PostgreSQL
-        run: |
-          docker-compose -f docker/compose/pg_compose.yml up -d
+      - name: Running PostgreSQL (to test DB SQL Executor)
+        run: docker-compose -f docker/compose/pg_compose.yml up -d
 
       - name: Building and testing the changes
-        run: mvn clean test -X -Dserver.port=0 # Use random port for tests
+        run: mvn clean test
 
       - name: Clean up Docker
         if: always()
         run: |
           docker-compose -f docker/compose/kafka-schema-registry.yml down
           docker-compose -f docker/compose/pg_compose.yml down
-          pkill -f 'java' || true
