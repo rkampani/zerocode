@@ -24,12 +24,12 @@ jobs:
 
       - name: Check port usage
         run: |
-          sudo netstat -tulnp | grep -E '8080|9092|8081|5432' || true
-          sudo lsof -i:8080 -i:9092 -i:8081 -i:5432 || true
+          sudo netstat -tulnp | grep -E '8080|9092|8081|5432|9998' || true
+          sudo lsof -i:8080 -i:9092 -i:8081 -i:5432 -i:9998 || true
 
       - name: Kill process on port
         run: |
-          sudo lsof -i:8080 -i:9092 -i:8081 -i:5432 -t | xargs -r sudo kill -9 || true
+          sudo lsof -i:8080 -i:9092 -i:8081 -i:5432 -i:9998 -t | xargs -r sudo kill -9 || true
 
       - name: Install Docker Compose
         run: |
