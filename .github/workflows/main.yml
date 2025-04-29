@@ -11,25 +11,46 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      ACTIONS_STEP_DEBUG: true # Enable debug logging
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setting up JDK11
+      - name: Setting up JDK 11
         uses: actions/setup-java@v4
         with:
           java-version: '11'
-          distribution: 'temurin' # 'adopt' is deprecated, using 'temurin' instead
+          distribution: 'temurin'
+
+      - name: Check port usage
+        run: |
+          sudo netstat -tulnp | grep -E '8080|9092|8081|5432' || true
+          sudo lsof -i:8080 -i:9092 -i:8081 -i:5432 || true
+
+      - name: Kill process on port
+        run: |
+          sudo lsof -i:8080 -i:9092 -i:8081 -i:5432 -t | xargs -r sudo kill -9 || true
 
       - name: Install Docker Compose
         run: |
           sudo apt-get update
           sudo apt-get install -y docker-compose
-          
-      - name: Running Kafka
-        run: docker-compose -f docker/compose/kafka-schema-registry.yml up -d && sleep 10
 
-      - name: Running PostgreSQL (to test DB SQL Executor)
-        run: docker-compose -f docker/compose/pg_compose.yml up -d
+      - name: Running Kafka
+        run: |
+          docker-compose -f docker/compose/kafka-schema-registry.yml up -d
+          sleep 10
+
+      - name: Running PostgreSQL
+        run: |
+          docker-compose -f docker/compose/pg_compose.yml up -d
 
       - name: Building and testing the changes
-        run: mvn clean test
+        run: mvn clean test -X -Dserver.port=0 # Use random port for tests
+
+      - name: Clean up Docker
+        if: always()
+        run: |
+          docker-compose -f docker/compose/kafka-schema-registry.yml down
+          docker-compose -f docker/compose/pg_compose.yml down
+          pkill -f 'java' || true
