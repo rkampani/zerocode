@@ -48,5 +48,6 @@ jobs:
       - name: Clean up Docker
         if: always()
         run: |
-          docker-compose -f docker/compose/kafka-schema-registry.yml down
-          docker-compose -f docker/compose/pg_compose.yml down
+          docker-compose -f docker/compose/kafka-schema-registry.yml down --volumes --remove-orphans
+          docker-compose -f docker/compose/pg_compose.yml down --volumes --remove-orphans
+          docker network prune -f
