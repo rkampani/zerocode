@@ -119,7 +119,7 @@ public class KafkaProducerHelper {
 
     public static String protoClassType(String requestJson, String classTypeJsonPath) {
         try {
-            return readJsonPath(requestJson, classTypeJsonPath, String.class);
+            return JsonPath.read(requestJson, classTypeJsonPath);
         } catch (PathNotFoundException pEx) {
             LOGGER.error("Could not find path '" + classTypeJsonPath + "' in the request. returned default type 'RAW'.");
             String errMsg = "Missing 'protoClassType' for 'recordType:PROTO'. Please provide 'protoClassType' and rerun ";
