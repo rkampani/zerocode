@@ -113,7 +113,7 @@ public class HttpApiExecutorImpl implements HttpApiExecutor {
             if (mockPort > 0) {
                 createWithWireMock(mockSteps, mockPort);
 
-                LOGGER.debug("#SUCCESS: End points simulated via wiremock.");
+                LOGGER.info("#SUCCESS: End points simulated via wiremock.");
 
                 return true;
             }

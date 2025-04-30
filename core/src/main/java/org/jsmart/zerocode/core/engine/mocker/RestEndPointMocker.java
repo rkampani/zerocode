@@ -51,7 +51,7 @@ public class RestEndPointMocker {
         if (urls.size() != 0 && hasMoreThanOneStubForSameUrlPath(urls)) {
             shouldBuildStrictUrlMatcherForAllUrls = true;
         }
-        LOGGER.debug("Going to build strict url matcher - {}",shouldBuildStrictUrlMatcherForAllUrls);
+        LOGGER.info("Going to build strict url matcher - {}",shouldBuildStrictUrlMatcherForAllUrls);
         mockSteps.getMocks().forEach(mockStep -> {
             JsonNode jsonNodeResponse = mockStep.getResponse();
             JsonNode jsonNodeBody = jsonNodeResponse.get("body");
