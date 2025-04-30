@@ -6,6 +6,8 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.Description;
 import org.junit.runner.notification.RunNotifier;
@@ -16,6 +18,7 @@ import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+@TestMethodOrder(MethodOrderer.MethodName.class)
 public class ZeroCodePackageRunnerTest {
 
     ZeroCodePackageRunner zeroCodePackageRunner;
