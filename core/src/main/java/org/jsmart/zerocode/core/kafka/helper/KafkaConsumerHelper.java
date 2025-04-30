@@ -67,7 +67,9 @@ import static org.jsmart.zerocode.core.kafka.KafkaConstants.MAX_NO_OF_RETRY_POLL
 import static org.jsmart.zerocode.core.kafka.KafkaConstants.PROTO;
 import static org.jsmart.zerocode.core.kafka.KafkaConstants.RAW;
 import static org.jsmart.zerocode.core.kafka.common.KafkaCommonUtils.resolveValuePlaceHolders;
+import static org.jsmart.zerocode.core.utils.HelperJsonUtils.readJsonPath;
 import static org.jsmart.zerocode.core.utils.SmartUtils.prettyPrintJson;
+
 
 public class KafkaConsumerHelper {
     public static final String CONSUMER = "CONSUMER";
@@ -387,7 +389,7 @@ public class KafkaConsumerHelper {
 
         // Optional filter applied. if not supplied, original result is returned as response
         if (testConfigs != null && testConfigs.getFilterByJsonPath() != null) {
-            String filteredResult = JsonPath.read(result, testConfigs.getFilterByJsonPath()).toString();
+            String filteredResult = readJsonPath(result, testConfigs.getFilterByJsonPath(), String.class);
             List<ConsumerJsonRecord> filteredRecords = objectMapper.readValue(filteredResult, List.class);
             result = prettyPrintJson(objectMapper.writeValueAsString(new ConsumerJsonRecords(filteredRecords)));
         }
