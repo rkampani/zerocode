@@ -61,9 +61,9 @@
 
     <properties>
         <!-- This project properties -->
-        <junit5.version>5.4.2</junit5.version>
-        <junit.vintage.version>5.4.2</junit.vintage.version>
-        <junit-platform-runner.version>1.4.2</junit-platform-runner.version>
+        <junit5.version>5.11.3</junit5.version>
+        <junit.vintage.version>5.11.3</junit.vintage.version>
+        <junit-platform-runner.version>1.11.1</junit-platform-runner.version>
         <junit.version>4.13.2</junit.version>
         <jackson.version>2.15.4</jackson.version>
         <guava.version>33.0.0-jre</guava.version>
