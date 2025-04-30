@@ -154,7 +154,7 @@ public class ZeroCodeAssertionsProcessorImpl implements ZeroCodeAssertionsProces
 
                     } else {
 
-                        paramMap.put(thisPath, JsonPath.read(scenarioState, thisPath).toString());
+                        paramMap.put(thisPath, String.valueOf(JsonPath.read(scenarioState, thisPath)));
 
                     }
                 }
