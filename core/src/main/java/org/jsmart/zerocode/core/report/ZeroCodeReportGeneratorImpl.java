@@ -86,6 +86,7 @@ public class ZeroCodeReportGeneratorImpl implements ZeroCodeReportGenerator {
     @Override
     public void generateExtentReport() {
 
+        LOGGER.info("***********generateExtentReport *************");
         if (interactiveHtmlReportDisabled) {
             return;
         }

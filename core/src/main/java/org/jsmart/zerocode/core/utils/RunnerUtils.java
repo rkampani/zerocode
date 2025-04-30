@@ -121,6 +121,7 @@ public class RunnerUtils {
     }
 
     public static void handleTestCompleted(RunListener reportListener, Logger logger) {
+        logger.info("Bypassed JUnit RunListener [handleTestCompleted] to generate useful reports...");
         if (CHARTS_AND_CSV.equals(getProperty(ZEROCODE_JUNIT))) {
             /**
              * Gradle does not support JUnit RunListener. Hence Zerocode gracefully handled this
@@ -133,7 +134,7 @@ public class RunnerUtils {
              * - https://github.com/gradle/gradle/issues/842
              * - many more related tickets.
              */
-            logger.debug("Bypassed JUnit RunListener [as configured by the build tool] to generate useful reports...");
+            logger.info("Bypassed JUnit RunListener [as configured by the build tool] to generate useful reports...");
             try {
                 reportListener.testRunFinished(new Result());
             } catch (Exception e) {

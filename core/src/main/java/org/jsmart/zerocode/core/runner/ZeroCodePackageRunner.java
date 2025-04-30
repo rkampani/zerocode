@@ -141,7 +141,7 @@ public class ZeroCodePackageRunner extends ParentRunner<ScenarioSpec> {
         RunListener reportListener = createTestUtilityListener();
         notifier.addListener(reportListener);
 
-        LOGGER.debug("System property " + ZEROCODE_JUNIT + "=" + getProperty(ZEROCODE_JUNIT));
+        LOGGER.info("System property " + ZEROCODE_JUNIT + "=" + getProperty(ZEROCODE_JUNIT));
         if (!CHARTS_AND_CSV.equals(getProperty(ZEROCODE_JUNIT))) {
             notifier.addListener(reportListener);
         }

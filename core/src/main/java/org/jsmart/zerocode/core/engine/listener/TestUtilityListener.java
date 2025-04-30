@@ -35,6 +35,7 @@ public class TestUtilityListener extends RunListener {
         /*
          * Called when all tests have finished
          */
+        LOGGER.info("Generating report going to start -not working with latest mockito");
         printTestCompleted();
         generateChartsAndReports();
         runPostFinished();
@@ -42,7 +43,7 @@ public class TestUtilityListener extends RunListener {
 
     private void printTestCompleted() {
         LOGGER.info("Generating test-statistics reports. please wait...");
-        LOGGER.debug("#ZeroCode: Test run completed for this runner. Generating test reports... " +
+        LOGGER.info("#ZeroCode: Test run completed for this runner. Generating test reports... " +
                 "\n* For more examples, visit https://github.com/authorjapps/zerocode/wiki");
     }
 
@@ -57,6 +58,7 @@ public class TestUtilityListener extends RunListener {
 
     private void generateChartsAndReports() {
 
+        LOGGER.info("********************Before  generateChartsAndReports.generateCsvReport() ******************");
         reportGenerator.generateCsvReport();
 
         /**
@@ -68,7 +70,7 @@ public class TestUtilityListener extends RunListener {
            Yes. The Developer License allows you to install and use the software on a commercial company's intranet.
          */
         //reportGenerator.generateHighChartReport();
-
+        LOGGER.info("********************Before  generateChartsAndReports.generateExtentReport() ******************");
         reportGenerator.generateExtentReport();
     }
 }
