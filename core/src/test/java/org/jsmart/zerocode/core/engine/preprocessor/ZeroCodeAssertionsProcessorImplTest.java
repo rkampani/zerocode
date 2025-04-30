@@ -1461,7 +1461,7 @@ public class ZeroCodeAssertionsProcessorImplTest {
         String thisPath;
         thisPath = "$..author.$VALUE[3]";
 
-        expectedException.expectMessage("Index: 3, Size: 2");
+        expectedException.expectMessage("Index 3 out of bounds for length 2");
         expectedException.expect(IndexOutOfBoundsException.class);
         jsonPreProcessor.resolveLeafOnlyNodeValue(scenarioState, paramMap, thisPath);
     }
