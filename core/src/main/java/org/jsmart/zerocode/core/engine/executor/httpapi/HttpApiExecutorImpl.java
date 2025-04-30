@@ -58,9 +58,9 @@ public class HttpApiExecutorImpl implements HttpApiExecutor {
              */
             return "{\"status\": 200}";
         }
-
+        LOGGER.info("Before httpClient execution ::"+httpUrl);
         final javax.ws.rs.core.Response serverResponse = httpClient.execute(httpUrl, methodName, headers, queryParams, bodyContent);
-
+        LOGGER.info("After httpClient execution completed.");
         /*
          * now read the response for :
          * - headers
