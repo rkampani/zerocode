@@ -70,7 +70,7 @@
         <jsonassert.version>1.5.1</jsonassert.version>
         <classpath-explorer.version>1.0</classpath-explorer.version>
         <jukito.version>1.5</jukito.version>
-        <mockito.version>5.15.2</mockito.version>
+        <mockito.version>5.3.1</mockito.version>
         <guice.version>7.0.0</guice.version>
         <jayway-version>2.9.0</jayway-version>
         <json-smart.version>2.5.0</json-smart.version>
