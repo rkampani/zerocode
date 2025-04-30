@@ -138,7 +138,7 @@ public class ZeroCodeAssertionsProcessorImpl implements ZeroCodeAssertionsProces
                      * Use escapeJava, do not use escapeJavaScript, as escapeJavaScript also escapes single quotes
                      * which in turn throws Jackson Exception
                      */
-                    String escapedString = escapeJava(JsonPath.read(scenarioState, thisPath));
+                    String escapedString = escapeJava(JsonPath.read(scenarioState, thisPath).toString());
                     paramMap.put(thisPath, escapedString);
 
                 } else if (thisPath.matches(LEAF_VAL_REGEX) || thisPath.endsWith($VALUE)) {
