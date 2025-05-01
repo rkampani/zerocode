@@ -13,7 +13,6 @@ import java.util.Map;
 import java.util.TimeZone;
 
 import org.jukito.JukitoRunner;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -44,7 +43,6 @@ public class DbValueConverterTest extends DbTestBase {
 				"[{VEXACT=102, VDEC=123.45, VFLOAT=234.56, VREAL=345.61}]");
 	}
 
-	@Ignore
 	@Test
 	public void convertDateAndTimeValues() throws SQLException {
 		List<Map<String, Object>> rows = doTestConversion("", "DTABLE", "VTS1 TIMESTAMP, VTS2 TIMESTAMP, VTIME TIME, VDATE DATE",
