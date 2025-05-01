@@ -64,7 +64,6 @@ public class GsonSerDeProvider implements Provider<Gson> {
             JsonToken peek = reader.peek();
             if (JsonToken.NULL.equals(peek)) {
                 reader.nextNull();
-
             } else {
                 Map<String, String> map = gson.getAdapter(Map.class).read(reader);
 

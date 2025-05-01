@@ -30,7 +30,6 @@ import static org.jsmart.zerocode.core.kafka.KafkaConstants.RAW;
 import static org.jsmart.zerocode.core.kafka.common.CommonConfigs.BOOTSTRAP_SERVERS;
 import static org.jsmart.zerocode.core.kafka.common.KafkaCommonUtils.resolveValuePlaceHolders;
 import static org.jsmart.zerocode.core.kafka.error.KafkaMessageConstants.NO_RECORD_FOUND_TO_SEND;
-import static org.jsmart.zerocode.core.utils.HelperJsonUtils.readJsonPath;
 
 public class KafkaProducerHelper {
     private static final Logger LOGGER = LoggerFactory.getLogger(KafkaProducerHelper.class);
@@ -110,7 +109,7 @@ public class KafkaProducerHelper {
 
     public static String readRecordType(String requestJson, String jsonPath) {
         try {
-            return readJsonPath(requestJson, jsonPath, String.class);
+            return JsonPath.read(requestJson, jsonPath);
         } catch (PathNotFoundException pEx) {
             LOGGER.warn("Could not find path '" + jsonPath + "' in the request. returned default type 'RAW'.");
             return RAW;
