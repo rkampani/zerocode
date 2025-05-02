@@ -1,22 +1,18 @@
 package org.jsmart.zerocode.core.db;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.assertThrows;
+import com.google.inject.Inject;
+import com.univocity.parsers.csv.CsvParser;
+import org.junit.Test;
 
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import org.jukito.JukitoRunner;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertThrows;
 
-import com.google.inject.Inject;
-import com.univocity.parsers.csv.CsvParser;
-
-@RunWith(JukitoRunner.class)
 public class DbCsvLoaderTest extends DbTestBase{
 	
 	private DbCsvLoader loader;

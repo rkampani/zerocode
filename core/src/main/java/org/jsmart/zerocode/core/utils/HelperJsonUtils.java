@@ -5,19 +5,18 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
 import com.jayway.jsonpath.PathNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.apache.commons.lang3.StringUtils;
 import org.jsmart.zerocode.core.di.provider.ObjectMapperProvider;
 import org.jsmart.zerocode.core.engine.assertion.FieldAssertionMatcher;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import static org.jsmart.zerocode.core.engine.assertion.FieldAssertionMatcher.aMatchingMessage;
 import static org.jsmart.zerocode.core.engine.assertion.FieldAssertionMatcher.aNotMatchingMessage;
@@ -158,6 +157,25 @@ public class HelperJsonUtils {
             return JsonPath.read(requestJson, jsonPath);
         } catch (PathNotFoundException pEx) {
             LOGGER.warn("No " + jsonPath + " was present in the request. returned null.");
+            return null;
+        }
+    }
+
+    public static <T> T readJsonPath(final String requestJson, final String jsonPath, final Class<T> clazz) {
+        try {
+            // Read the raw value from JSON Path
+            final Object result = JsonPath.read(requestJson, jsonPath);
+            if (result == null) {
+                LOGGER.warn("JSON Path {} returned null.", jsonPath);
+                return null;
+            }
+            // Convert the result to the target class
+            return mapper.convertValue(result, clazz);
+        } catch (final PathNotFoundException pEx) {
+            LOGGER.warn("No {} was present in the request. Returned null.", jsonPath);
+            return null;
+        } catch (Exception e) {
+            LOGGER.error("Error converting JSON Path {} to type {}: {}", jsonPath, clazz.getSimpleName(), e.getMessage());
             return null;
         }
     }
