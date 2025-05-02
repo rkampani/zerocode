@@ -65,6 +65,7 @@
         <junit.vintage.version>5.7.0</junit.vintage.version>
         <junit-platform-runner.version>1.4.2</junit-platform-runner.version>
         <junit.version>4.13.2</junit.version>
+        <mockito.version>4.11.0</mockito.version>
         <jackson.version>2.15.4</jackson.version>
         <guava.version>33.0.0-jre</guava.version>
         <jsonassert.version>1.5.1</jsonassert.version>
@@ -114,12 +115,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- JUnit 5 -->
-            <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-api</artifactId>
-                <version>${junit5.version}</version>
-            </dependency>
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-params</artifactId>
@@ -140,6 +135,7 @@
                     </exclusion>
                 </exclusions>
             </dependency>
+            <!-- The junit 4 test engine implementation. -->
            <dependency>
                 <groupId>org.junit.vintage</groupId>
                 <artifactId>junit-vintage-engine</artifactId>
@@ -151,9 +147,10 @@
                 <version>${junit-platform-runner.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.junit.platform</groupId>
-                <artifactId>junit-platform-engine</artifactId>
-                <version>1.11.4</version>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>${mockito.version}</version> <!-- Use 5.14.2 if on Java 11+ compiler -->
+                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>com.google.code.gson</groupId>
