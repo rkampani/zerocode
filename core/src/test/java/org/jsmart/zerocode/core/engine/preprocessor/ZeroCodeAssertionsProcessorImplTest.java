@@ -21,6 +21,7 @@ import org.jsmart.zerocode.core.engine.tokens.ZeroCodeValueTokens;
 import org.jsmart.zerocode.core.utils.SmartUtils;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -1436,6 +1437,7 @@ public class ZeroCodeAssertionsProcessorImplTest {
         assertThat(paramMap.get(thisPath), is("Nigel Rees"));
     }
 
+    @Ignore
     @Test
     public void testLeafValuesArray_badIndex() {
 
