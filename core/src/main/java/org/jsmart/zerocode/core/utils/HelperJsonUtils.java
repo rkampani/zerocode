@@ -161,6 +161,19 @@ public class HelperJsonUtils {
         }
     }
 
+    /**
+     * Reads a value from a JSON string using a JSON Path expression and converts it to the specified type.
+     * <p>
+     * This method extracts a value from the provided JSON string using the given JSON Path expression
+     * and converts it to the target type specified by {@code clazz}. It is designed to be compatible
+     * with JDK 9 and higher, where generic type inference is stricter. The explicit use of {@code Class<T>}
+     * ensures proper type handling during conversion, avoiding issues with type erasure or inference.
+     * </p>
+     * <p>
+     * If the JSON Path does not exist, or the value is null, the method logs a warning and returns {@code null}.
+     * Any other errors during JSON Path evaluation or type conversion are logged as errors, and {@code null} is returned.
+     * </p>
+     */
     public static <T> T readJsonPath(final String requestJson, final String jsonPath, final Class<T> clazz) {
         try {
             // Read the raw value from JSON Path
