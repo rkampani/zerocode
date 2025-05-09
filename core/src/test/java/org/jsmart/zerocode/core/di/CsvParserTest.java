@@ -20,7 +20,7 @@ public class CsvParserTest {
     @Rule
     public ZeroCodeGuiceTestRule guiceRule = new ZeroCodeGuiceTestRule(this, CsvParserTest.ZeroCodeTestModule.class);
 
-    public static class ZeroCodeGuiceTestRule extends AbstractModule {
+    public static class ZeroCodeTestModule extends AbstractModule {
         @Override
         protected void configure() {
             ApplicationMainModule applicationMainModule = new ApplicationMainModule("config_hosts_test.properties");

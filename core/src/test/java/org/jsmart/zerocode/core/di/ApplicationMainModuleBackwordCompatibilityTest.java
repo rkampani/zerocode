@@ -16,7 +16,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 //this config file is to test backword compatibility, remove this test only after release 1.2.9 or later releases
 public class ApplicationMainModuleBackwordCompatibilityTest {
     @Rule
-    public ZeroCodeGuiceTestRule guiceRule = new ZeroCodeGuiceTestRule(this, ZeroCodeTestModule.class);
+    public ZeroCodeGuiceTestRule guiceRule = new ZeroCodeGuiceTestRule(this, ApplicationMainModuleBackwordCompatibilityTest.ZeroCodeTestModule.class);
     public static class ZeroCodeTestModule extends AbstractModule {
         @Override
         protected void configure() {

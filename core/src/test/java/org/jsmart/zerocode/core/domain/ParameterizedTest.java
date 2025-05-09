@@ -23,7 +23,7 @@ import static org.hamcrest.core.Is.is;
 public class ParameterizedTest {
 
     @Rule
-    public ZeroCodeGuiceTestRule guiceRule = new ZeroCodeGuiceTestRule(this, ZeroCodeTestModule.class);
+    public ZeroCodeGuiceTestRule guiceRule = new ZeroCodeGuiceTestRule(this, ParameterizedTest.ZeroCodeTestModule.class);
     public static class ZeroCodeTestModule extends AbstractModule {
         @Override
         protected void configure() {

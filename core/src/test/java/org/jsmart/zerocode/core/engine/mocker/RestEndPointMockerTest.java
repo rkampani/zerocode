@@ -55,7 +55,7 @@ import static org.jsmart.zerocode.core.engine.mocker.RestEndPointMocker.getWireM
 
 public class RestEndPointMockerTest {
     @Rule
-    public ZeroCodeGuiceTestRule guiceRule = new ZeroCodeGuiceTestRule(this, ZeroCodeTestModule.class);
+    public ZeroCodeGuiceTestRule guiceRule = new ZeroCodeGuiceTestRule(this, RestEndPointMockerTest.ZeroCodeTestModule.class);
 
     public static class ZeroCodeTestModule extends AbstractModule {
         @Override

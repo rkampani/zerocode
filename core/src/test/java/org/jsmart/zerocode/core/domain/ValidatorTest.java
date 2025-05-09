@@ -17,7 +17,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ValidatorTest {
     @Rule
-    public ZeroCodeGuiceTestRule guiceRule = new ZeroCodeGuiceTestRule(this, ZeroCodeTestModule.class);
+    public ZeroCodeGuiceTestRule guiceRule = new ZeroCodeGuiceTestRule(this, ValidatorTest.ZeroCodeTestModule.class);
 
     public static class ZeroCodeTestModule extends AbstractModule {
         @Override

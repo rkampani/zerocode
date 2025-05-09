@@ -33,7 +33,7 @@ import static org.jsmart.zerocode.core.utils.TokenUtils.getTestCaseTokens;
 //@UseModules(ApplicationMainModule.class) //<--- Only if you dont pass any value to it's constructor
 public class SmartUtilsTest {
     @Rule
-    public ZeroCodeGuiceTestRule guiceRule = new ZeroCodeGuiceTestRule(this, ZeroCodeTestModule.class);
+    public ZeroCodeGuiceTestRule guiceRule = new ZeroCodeGuiceTestRule(this, SmartUtilsTest.ZeroCodeTestModule.class);
     public static class ZeroCodeTestModule extends AbstractModule {
         @Override
         protected void configure() {

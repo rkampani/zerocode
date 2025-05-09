@@ -22,7 +22,7 @@ import java.util.Map;
  */
 public abstract class DbTestBase {
 	@Rule
-	public ZeroCodeGuiceTestRule guiceRule = new ZeroCodeGuiceTestRule(this, ZeroCodeTestModule.class);
+	public ZeroCodeGuiceTestRule guiceRule = new ZeroCodeGuiceTestRule(this, DbTestBase.ZeroCodeTestModule.class);
 
 	// Subclasses must use JukitoRunner
     public static class ZeroCodeTestModule extends AbstractModule {

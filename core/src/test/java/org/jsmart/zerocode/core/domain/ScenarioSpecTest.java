@@ -21,7 +21,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ScenarioSpecTest {
     @Rule
-    public ZeroCodeGuiceTestRule guiceRule = new ZeroCodeGuiceTestRule(this, ZeroCodeTestModule.class);
+    public ZeroCodeGuiceTestRule guiceRule = new ZeroCodeGuiceTestRule(this, ScenarioSpecTest.ZeroCodeTestModule.class);
 
     public static class ZeroCodeTestModule extends AbstractModule {
         @Override

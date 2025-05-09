@@ -20,7 +20,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ZeroCodeParameterizedProcessorImplTest {
     @Rule
-    public ZeroCodeGuiceTestRule guiceRule = new ZeroCodeGuiceTestRule(this, ZeroCodeTestModule.class);
+    public ZeroCodeGuiceTestRule guiceRule = new ZeroCodeGuiceTestRule(this, ZeroCodeParameterizedProcessorImplTest.ZeroCodeTestModule.class);
 
     @Rule
     public ExpectedException expectedException = ExpectedException.none();

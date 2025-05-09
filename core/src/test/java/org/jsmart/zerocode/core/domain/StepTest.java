@@ -33,7 +33,7 @@ import static org.jsmart.zerocode.core.engine.assertion.FieldAssertionMatcher.aN
 
 public class StepTest {
     @Rule
-    public ZeroCodeGuiceTestRule guiceRule = new ZeroCodeGuiceTestRule(this, ZeroCodeTestModule.class);
+    public ZeroCodeGuiceTestRule guiceRule = new ZeroCodeGuiceTestRule(this, StepTest.ZeroCodeTestModule.class);
     public static class ZeroCodeTestModule extends AbstractModule {
         @Override
         protected void configure() {
