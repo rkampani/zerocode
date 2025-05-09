@@ -1,8 +1,7 @@
 package org.jsmart.zerocode.core.db;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.assertThrows;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -12,12 +11,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.TimeZone;
 
-import org.jukito.JukitoRunner;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertThrows;
 
-@RunWith(JukitoRunner.class)
 public class DbValueConverterTest extends DbTestBase {
 
 	@Test
