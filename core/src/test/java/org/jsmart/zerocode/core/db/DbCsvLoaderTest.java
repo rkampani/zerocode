@@ -1,7 +1,6 @@
 package org.jsmart.zerocode.core.db;
 
 import com.google.inject.Inject;
-import com.univocity.parsers.csv.CsvParser;
 import org.junit.Test;
 
 import java.sql.SQLException;

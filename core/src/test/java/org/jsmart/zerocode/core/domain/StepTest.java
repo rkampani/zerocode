@@ -6,6 +6,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 import com.jayway.jsonpath.JsonPath;
 import org.jsmart.zerocode.core.di.main.ApplicationMainModule;
+import org.jsmart.zerocode.core.di.provider.CsvParserProvider;
 import org.jsmart.zerocode.core.engine.assertion.FieldAssertionMatcher;
 import org.jsmart.zerocode.core.guice.ZeroCodeGuiceTestRule;
 import org.jsmart.zerocode.core.utils.SmartUtils;
